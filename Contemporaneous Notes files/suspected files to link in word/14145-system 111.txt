@@ -1,0 +1,317 @@
+Hive (C:\Users\kesha\OneDrive\Desktop\Contemporaneous Notes files\suspected files to link in word\14145-system.sav) is not dirty.
+
+scanbutton v.20131210
+(System) Get Scan Button information
+
+ControlSet000\Control\StillImage\Events\ScanButton not found.
+----------------------------------------
+appcertdlls v.20200427
+ControlSet000\Control\Session Manager\AppCertDlls not found.
+----------------------------------------
+appcompatcache v.20220921
+(System) Parse files from System hive AppCompatCache
+
+ControlSet000\Control\Session Manager not found.
+----------------------------------------
+backuprestore v.20200517
+(System) Gets the contents of the FilesNotToSnapshot, KeysNotToRestore, and FilesNotToBackup keys
+
+ControlSet000\Control\BackupRestore\FilesNotToSnapshot not found.
+
+ControlSet000\Control\BackupRestore\FilesNotToBackup not found.
+
+ControlSet000\Control\BackupRestore\KeysNotToRestore not found.
+----------------------------------------
+bam v.20200427
+(System) Parse files from System hive BAM Services
+
+ControlSet000\Services\bam\State\UserSettings not found.
+----------------------------------------
+bthenum v.20200515
+(System) Get BTHENUM subkey info
+
+ControlSet000\Enum\BTHENUM not found.
+----------------------------------------
+bthport v.20200517
+(System) Gets Bluetooth-connected devices from System hive
+
+ControlSet000\services\BTHPORT\Parameters\Devices not found.
+
+ControlSet000\services\BTHPORT\Parameters\Radio Support not found.
+----------------------------------------
+codepage v.20200519
+(system) Checks codepage value
+
+----------------------------------------
+compname v.20090727
+(System) Gets ComputerName and Hostname values from System hive
+
+ControlSet000\Control\ComputerName\ComputerName not found.
+----------------------------------------
+cred v.20200427
+(system) Checks for UseLogonCredential value
+
+----------------------------------------
+dafupnp v.20200525
+(System) Parses data from networked media streaming devices
+
+ControlSet000\Enum\SWD\DAFUPnPProvider not found.
+----------------------------------------
+devclass v.20200525
+(System) Get USB device info from the DeviceClasses keys in the System hive
+
+ControlSet000\Control\DeviceClasses\{53f56307-b6bf-11d0-94f2-00a0c91efb8b} not found.
+
+ControlSet000\Control\DeviceClasses\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b} not found.
+ControlSet000\Control\DeviceClasses\{10497b1b-ba51-44e5-8318-a65c837b6661} not found.
+----------------------------------------
+disablelastaccess v.20200517
+(System) Get NTFSDisableLastAccessUpdate value
+
+ControlSet000\Control\FileSystem not found.
+----------------------------------------
+disableremotescm v.20200513
+(System) Gets DisableRemoteScmEndpoints value from System hive
+
+ControlSet000\Control not found.
+----------------------------------------
+environment v.20200512
+(System, NTUSER.DAT) Get environment vars from NTUSER.DAT & System hives
+
+ControlSet000\Control\Session Manager\Environment not found.
+----------------------------------------
+imagedev v.20140104
+(System)  -- 
+
+ControlSet000\Control\Class\{6BDD1FC6-810F-11D0-BEC7-08002BE2092F} not found.
+----------------------------------------
+ips v.20200518
+(System) Get IP Addresses and domains (DHCP,static)
+
+ControlSet000\Services\Tcpip\Parameters\Interfaces not found.
+----------------------------------------
+lsa v.20200517
+(System) Lists specific contents of LSA key
+
+ControlSet000\Control\LSA not found.
+----------------------------------------
+macaddr v.20200515
+(System,Software)  -- 
+
+ControlSet000\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318}
+ControlSet000\Control\Class\{4D36E972-E325-11CE-BFC1-08002bE10318} not found.
+----------------------------------------
+mountdev v.20200517
+(System) Return contents of System hive MountedDevices key
+
+
+MountedDevices
+LastWrite time = 2002-02-28 15:20:25Z
+
+\??\Volume{b5234b45-2c5c-11d6-b170-806d6172696f}
+  Drive Signature =  d1 1b d1 1b
+\DosDevices\F:
+  Drive Signature =  d1 1b d1 1b
+
+Device: \??\STORAGE#RemovableMedia#5&373eb979&0&RM#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b43-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\C:
+
+Device: \??\IDE#CdRomCREATIVE_DVD-ROM_DVD2240E_______________1.5A____#5&35c6ca11&0&0.1.0#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b41-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\D:
+
+Device: \??\FDC#GENERIC_FLOPPY_DRIVE#5&29337118&0&0#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b40-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\A:
+
+Device: \??\SCSI#CdRom&Ven_YAMAHA&Prod_CRW4260&Rev_1.0h#4&2c1afece&0&000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b42-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\E:
+
+----------------------------------------
+
+mountdev2 v.20200517
+(System) Return contents of System hive MountedDevices key
+
+MountedDevices
+LastWrite time = 2002-02-28 15:20:25Z
+
+Volume                                              Disk Sig                            Offset
+-------                                             --------                          --------
+\??\Volume{b5234b45-2c5c-11d6-b170-806d6172696f}     d1 1b d1 1b                             0
+\DosDevices\F:                                       d1 1b d1 1b                             0
+
+\??\Volume{b5234b45-2c5c-11d6-b170-806d6172696f}
+  Thu Feb 28 15:06:14 2002
+
+Device: \??\FDC#GENERIC_FLOPPY_DRIVE#5&29337118&0&0#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b40-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\A:
+
+Device: \??\IDE#CdRomCREATIVE_DVD-ROM_DVD2240E_______________1.5A____#5&35c6ca11&0&0.1.0#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b41-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\D:
+
+Device: \??\SCSI#CdRom&Ven_YAMAHA&Prod_CRW4260&Rev_1.0h#4&2c1afece&0&000#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b42-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\E:
+
+Device: \??\STORAGE#RemovableMedia#5&373eb979&0&RM#{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}
+  \??\Volume{b5234b43-2c5c-11d6-b170-806d6172696f}
+  \DosDevices\C:
+
+
+Unique MAC Addresses:
+80:6D:61:72:69:6F
+----------------------------------------
+netlogon v.20200515
+(System) Parse values for machine account password changes
+
+*** ControlSet001 ***
+DisablePasswordChange                0x0000
+
+----------------------------------------
+networksetup2 v.20191004
+(System) Get NetworkSetup2 subkey info
+
+ControlSet000\Control\NetworkSetup2\Interfaces not found.
+----------------------------------------
+nic2 v.20200525
+(System) Gets NIC info from System hive
+
+ControlSet000\Services\Tcpip\Parameters\Interfaces not found.
+----------------------------------------
+ntds v.20200427
+(System) Parse Services NTDS key for specific persistence values
+
+ControlSet000\Services\NTDS not found.
+----------------------------------------
+pagefile v.20140505
+(System) Get info on pagefile(s)
+
+ControlSet000\Control\Session Manager\Memory Management not found.
+----------------------------------------
+pending v.20130711
+(System) Gets contents of PendingFileRenameOperations value
+
+ControlSet000\Control\Session Manager not found.
+----------------------------------------
+PortProxy v.20210622
+(System) Get port proxy configuration from PortProxy key
+
+ControlSet001\Services\PortProxy\v4tov4\tcp not found.
+----------------------------------------
+prefetch v.20200515
+(System) Gets the the Prefetch Parameters
+
+ControlSet000\Control\Session Manager\Memory Management\PrefetchParameters not found.
+----------------------------------------
+printmon v.20200427
+(System) Lists installed Print Monitors
+
+ControlSet000\Control\Print\Monitors not found.
+----------------------------------------
+processor_architecture v.20140505
+(System) Get from the processor architecture from the System's environment key
+
+ControlSet000\Control\Session Manager\Environment not found.
+----------------------------------------
+profiler v.20200525
+(NTUSER.DAT, System) Environment profiler information
+
+
+ControlSet000\Control\Session Manager\Environment not found.
+----------------------------------------
+rdpport v.20200526
+(System) Queries System hive for RDP Port
+
+ControlSet000\Control\Terminal Server\WinStations\RDP-Tcp not found.
+----------------------------------------
+remoteaccess v.20200517
+(System) Get RemoteAccess AccountLockout settings
+
+ControlSet000\services\RemoteAccess\Parameters\AccountLockout not found.
+----------------------------------------
+routes v.20200526
+(System) Get persistent routes from the Registry
+
+ControlSet000\Services\Tcpip\Parameters\PersistentRoutes not found.
+----------------------------------------
+Launching securityproviders v.20200526
+(System) Gets SecurityProvider value from System hive
+
+ControlSet000\Control\SecurityProviders not found.
+----------------------------------------
+services v.20191024
+(System) Lists services/drivers in Services key by LastWrite times
+
+ControlSet000\Services not found.
+----------------------------------------
+shares v.20200525
+(System) Get list of shares from System hive file
+
+ subkey not found.
+----------------------------------------
+shimcache v.20220921
+(System) Parse file refs from System hive AppCompatCache data
+
+*** ControlSet001 ***
+Signature: 0x0
+
+----------------------------------------
+shutdown v.20200518
+(System) Gets ShutdownTime value from System hive
+
+ControlSet000\Control\Windows not found.
+----------------------------------------
+source_os v.20200511
+(System) Parse Source OS subkey values
+
+SetupType: 1
+Setup\CmdLine value = setup -newsetup
+----------------------------------------
+svc v.20200525
+(System) Lists Services key contents by LastWrite time (CSV)
+
+ControlSet000\Services not found.
+----------------------------------------
+svcdll v.20200525
+(System) Lists Services keys with ServiceDll values
+
+ControlSet000\Services not found.
+----------------------------------------
+termcert v.20200526
+(System) Gets Terminal Server certificate
+
+ControlSet000\Services\TermService\Parameters not found.
+----------------------------------------
+ControlSet000\Control\Terminal Server not found.
+Policies\Microsoft\Windows NT\Terminal Services not found.
+----------------------------------------
+timezone v.20200518
+(System) Get TimeZoneInformation key contents
+
+ControlSet000\Control\TimeZoneInformation could not be found.
+----------------------------------------
+usb v.20200515
+(System) Get USB key info
+
+ControlSet000\Enum\USB not found.
+----------------------------------------
+usbdevices v.20200525
+(System) Parses Enum\USB key for USB & WPD devices
+
+ControlSet000\Enum\USB not found.
+----------------------------------------
+usbstor v.20200515
+(System) Get USBStor key info
+
+ControlSet000\Enum\USBStor not found.
+----------------------------------------
+wpdbusenum v.20200515
+(System) Get WpdBusEnum subkey info
+
+ControlSet000\Enum\SWD\WPDBUSENUM not found.
+ControlSet000\Control\DeviceClasses\{10497b1b-ba51-44e5-8318-a65c837b6661} not found.
+----------------------------------------

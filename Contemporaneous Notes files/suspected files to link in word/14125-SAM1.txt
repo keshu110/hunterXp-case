@@ -1,0 +1,111 @@
+Hive (C:\Users\kesha\OneDrive\Desktop\Contemporaneous Notes files\Config extracted\14125-SAM) is not dirty.
+
+samparse v.20220921
+(SAM) Parse SAM file for user & group mbrshp info
+
+
+User Information
+-------------------------
+Username        : Administrator [500]
+SID             : S-1-5-21-1229272821-1580818891-854245398-500
+Full Name       : 
+User Comment    : Built-in account for administering the computer/domain
+Account Type    : Default Admin User
+Account Created : Thu Feb 28 15:22:36 2002 Z
+Name            :  
+Last Login Date : Never
+Pwd Reset Date  : Never
+Pwd Fail Date   : Never
+Login Count     : 0
+  --> Password does not expire
+  --> Normal user account
+
+Username        : Guest [501]
+SID             : S-1-5-21-1229272821-1580818891-854245398-501
+Full Name       : 
+User Comment    : Built-in account for guest access to the computer/domain
+Account Type    : Default Guest Acct
+Account Created : Thu Feb 28 15:22:36 2002 Z
+Name            :  
+Last Login Date : Mon Jun  3 16:49:37 2002 Z
+Pwd Reset Date  : Never
+Pwd Fail Date   : Never
+Login Count     : 0
+  --> Password does not expire
+  --> Password not required
+  --> Normal user account
+
+Username        : HelpAssistant [1000]
+SID             : S-1-5-21-1229272821-1580818891-854245398-1000
+Full Name       : Remote Desktop Help Assistant Account
+User Comment    : Account for Providing Remote Assistance
+Account Type    : Custom Limited Acct
+Account Created : Thu Feb 28 21:47:33 2002 Z
+Name            :  
+Last Login Date : Never
+Pwd Reset Date  : Thu Feb 28 21:47:33 2002 Z
+Pwd Fail Date   : Never
+Login Count     : 0
+  --> Password does not expire
+  --> Normal user account
+
+Username        : SUPPORT_388945a0 [1002]
+SID             : S-1-5-21-1229272821-1580818891-854245398-1002
+Full Name       : CN=Microsoft Corporation,L=Redmond,S=Washington,C=US
+User Comment    : This is a vendor's account for the Help and Support Service
+Account Type    : Custom Limited Acct
+Account Created : Thu Feb 28 21:56:13 2002 Z
+Name            :  
+Last Login Date : Never
+Pwd Reset Date  : Thu Feb 28 21:56:13 2002 Z
+Pwd Fail Date   : Never
+Login Count     : 0
+  --> Password does not expire
+  --> Account Disabled
+  --> Normal user account
+
+Username        : Bob Hunter [1004]
+SID             : S-1-5-21-1229272821-1580818891-854245398-1004
+Full Name       : 
+User Comment    : 
+Account Type    : Default Admin User
+Account Created : Thu Feb 28 22:22:17 2002 Z
+Name            :  
+Last Login Date : Tue Jun  4 23:01:54 2002 Z
+Pwd Reset Date  : Thu Feb 28 22:22:17 2002 Z
+Pwd Fail Date   : Never
+Login Count     : 37
+  --> Password does not expire
+  --> Password not required
+  --> Normal user account
+
+-------------------------
+Group Membership Information
+-------------------------
+Group Name    : Users [2]
+LastWrite     : Thu Feb 28 15:25:12 2002 Z
+Group Comment : Users are prevented from making accidental or intentional system-wide changes.  Thus, Users can run certified applications, but not most legacy applications
+Users :
+  S-1-5-4
+  S-1-5-11
+
+Group Name    : Guests [1]
+LastWrite     : Thu Feb 28 15:22:36 2002 Z
+Group Comment : Guests have the same access as members of the Users group by default, except for the Guest account which is further restricted
+Users :
+  S-1-5-21-1229272821-1580818891-854245398-501
+
+Group Name    : Administrators [2]
+LastWrite     : Thu Feb 28 22:22:17 2002 Z
+Group Comment : Administrators have complete and unrestricted access to the computer
+Users :
+  S-1-5-21-1229272821-1580818891-854245398-500
+  S-1-5-21-1229272821-1580818891-854245398-1004
+
+Analysis Tips:
+ - For well-known SIDs, see http://support.microsoft.com/kb/243330
+     - S-1-5-4  = Interactive
+     - S-1-5-11 = Authenticated Users
+ - Correlate the user SIDs to the output of the ProfileList plugin
+
+----------------------------------------

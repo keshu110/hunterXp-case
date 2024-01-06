@@ -1,0 +1,1562 @@
+<HTML>
+<HEAD>
+<!--
+Copyright (c) 2000 Microsoft Corporation
+-->
+<TITLE id="idTitle" name="idTitle">Remote Assistance</TITLE>
+<meta http-equiv="MSThemeCompatible" content="Yes">
+<LINK id="UI_StyleSheet" REL="stylesheet" TYPE="text/css" HREF="../../Css/rc.css">
+<LINK id="UI_StyleSheet1" REL="stylesheet" TYPE="text/css" HREF="hcp://system/css/shared.css">
+<script id="LocalScript" name="LocalScript" language="JavaScript">
+var L_ERRACCESSDENIED_Text = "Directly launching this page is not allowed. ";
+var L_ConnectTo_Text = "Attempting to connect to ";
+var L_ConnectToURA_Text = "Starting Remote Assistance";
+var L_ConnectionSuccess_Text = "You are now connected to ";
+var L_ERRRDSCLIENT_Text = "A program could not start.Please try again.";
+var L_ERRRDSCLIENTHOST_Text = "A program could not start.Please try again.";
+var L_ERRPWD_Text = "The password you entered is incorrect. Please try again. ";
+var L_ERRGETRDC_Text = "A program could not start.Please try again.";
+var L_ERRBINDINGEVTS_Text = "A program could not start.Please try again.";
+var L_ERRCONNECTION_Text = "Cannot connect to the other computer. Please try again.";
+var L_EXPIRYMESSAGE_Text = "This invitation seems to be expired. You can attempt to contact ";
+var L_EXPIRYMESSAGE1_Text = " anyway. If you cannot establish a connection, please contact ";
+var L_DOYOUCONNECT1_Text = "Do you want to connect to ";
+var L_DOYOUCONNECT2_Text = "'s computer now?";
+var L_NOVICESCOMPUTER_Text = "'s computer.";
+var L_PASSWORD_Text = "Password:";
+var L_CONTACT_Text = "If you do not know the password, contact ";
+var L_SAFError0_Text = "Connection successfully established.";
+var L_SAFError1_Text = "Remote Assistance connection disconnected. Please try again.";
+var L_SAFError2_Text = "Remote Assistance connection disconnected. Please try again.";
+var L_SAFError3_Text = "Remote Assistance connection disconnected. Please try again.";
+var L_SAFError4_Text = " has closed connection to your computer.";
+var L_SAFError5_Text = "Remote Assistance connection could not be established because the invitation has either expired or was canceled.";
+var L_SAFError6_Text = "A Remote Assistance connection could not be established because the DNS name of the remote computer could not be resolved.";
+var L_SAFError7_Text = "Remote Assistance connection could not be established because your computer is out of memory. Close some programs, and try again.";
+var L_SAFError8_Text = "Remote Assistance connection could not be established because of a network connection timeout. Please try again.";
+var L_SAFError9_Text = "A Remote Assistance connection could not be established. You may want to check for network issues or determine if the invitation expired or was cancelled by the person who sent it.";
+var L_SAFError10_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError11_Text = "Remote Assistance connection could not be established because the remote host name could not be resolved. Please try again.";
+var L_SAFError12_Text = "Remote Assistance is unable to send the connection request. Please try again.";
+var L_SAFError13_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError14_Text = "Remote Assistance cannot connect because the IP address of the remote computer is not valid.";
+var L_SAFError15_Text = "Remote Assistance is unable to send the connection request. Please try again.";
+var L_SAFError16_Text = "Remote Assistance connection disconnected. ";
+var L_SAFError17_Text = "Remote Assistance connection disconnected. ";
+var L_SAFError18_Text = "Remote Assistance stopped responding because the invitatation is invalid. Please ask the person who sent you the invitation to send you a new Remote Assistance invitation.";
+var L_SAFError19_Text = "Remote Assistance connection disconnected. ";
+var L_SAFError20_Text = "Remote Assistance disconnected because the name of the computer could not be resolved. The DNS server may have failed. Please try again.";
+var L_SAFError21_Text = "A Remote Assistance connection could not be made because there is a licensing error.";
+var L_SAFError22_Text = "A program has stopped responding.Please try again.";
+var L_SAFError23_Text = "A program has stopped responding.Please try again.";
+var L_SAFError24_Text = "Remote Assistance connection could not be established because the connection request data is invalid. The operating system version on your computer may not be compatible with that of the operating system version on the computer of ";
+var L_SAFError25_Text = "A program has stopped responding.Please try again.";
+var L_SAFError26_Text = "Remote Assistance cannot connect because the password is not valid. Please check the password and try again.";
+var L_SAFError27_Text = "Remote Assistance cannot connect because this invitation has expired. Please try again. ";
+var L_SAFError28_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError29_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError30_Text = "Remote Assistance connection cannot be established. Please try to connect again.";
+var L_SAFError31_Text = "Remote Assistance connection could not be established because novice's screen could not be displayed. Please try to connect again.";
+var L_SAFError32_Text = "Remote Assistance cannot connect because of a protocol failure. Please try again.";
+var L_SAFError33_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError34_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError35_Text = "Novice is responding...";
+var L_SAFError36_Text = "Novice has accepted your connection request.";
+var L_SAFError37_Text = "Remote Assistance cannot connect to the remote computer because another Remote Assistance session is currently in progress. For more information, contact the person who sent you the invitation or try again later.";
+var L_SAFError38_Text = "Remote Assistance cannot connect because the novice is currently being helped by an expert. Only one expert can provide help at a time.";
+var L_SAFError39_Text = "Remote Assistance cannot connect because the novice is not logged on.";
+var L_SAFError40_Text = "Remote Assistance cannot connect because the request timed out. The novice did not respond within the given time frame.";
+var L_SAFError41_Text = "Remote Assistance cannot connect because ";
+var L_SAFError41b_Text = " denied the request for help. ";
+var L_SAFError42_Text = "Remote Assistance cannot connect because the help user account on novice's computer has changed.";
+var L_SAFError43_Text = "Remote Assistance cannot connect because the remote user is not currently logged on.";
+var L_SAFError44_Text = "Remote Assistance connection could not be established. Please try again.";
+var L_SAFError45_Text = "You cannot connect to your local logon session. Please try connecting from another computer or login session.";
+var L_SAFError47_Text = "Remote Assistance cannot connect because of incompatible operating system versions.";
+var L_SAFError48_Text = "Remote Assistance session is not connected.";
+var L_SAFError50_Text = "Remote Assistance connection disconnected because the remote computer shutdown.";
+var L_SAFError51_Text = "Remote Assistance listen mode has stopped.";
+var L_SAFError52_Text = "Remote Assistance reverse connection could not be established due to network failure.";
+var L_SAFError53_Text = "Remote Assistance connection could not be established because the public key provided in this connection request did not match.";
+var SAFDisconnectError = new Array(54);
+SAFDisconnectError[0] = L_SAFError0_Text;
+SAFDisconnectError[1] = L_SAFError1_Text;
+SAFDisconnectError[2] = L_SAFError2_Text;
+SAFDisconnectError[3] = L_SAFError3_Text;
+SAFDisconnectError[4] = L_SAFError4_Text;
+SAFDisconnectError[5] = L_SAFError5_Text;
+SAFDisconnectError[6] = L_SAFError6_Text;
+SAFDisconnectError[7] = L_SAFError7_Text;
+SAFDisconnectError[8] = L_SAFError8_Text;
+SAFDisconnectError[9] = L_SAFError9_Text;
+SAFDisconnectError[10] = L_SAFError10_Text;
+SAFDisconnectError[11] = L_SAFError11_Text;
+SAFDisconnectError[12] = L_SAFError12_Text;
+SAFDisconnectError[13] = L_SAFError13_Text;
+SAFDisconnectError[14] = L_SAFError14_Text;
+SAFDisconnectError[15] = L_SAFError15_Text;
+SAFDisconnectError[16] = L_SAFError16_Text;
+SAFDisconnectError[17] = L_SAFError17_Text;
+SAFDisconnectError[18] = L_SAFError18_Text;
+SAFDisconnectError[19] = L_SAFError19_Text;
+SAFDisconnectError[20] = L_SAFError20_Text;
+SAFDisconnectError[21] = L_SAFError21_Text;
+SAFDisconnectError[22] = L_SAFError22_Text;
+SAFDisconnectError[23] = L_SAFError23_Text;
+SAFDisconnectError[24] = L_SAFError24_Text;
+SAFDisconnectError[25] = L_SAFError25_Text;
+SAFDisconnectError[26] = L_SAFError26_Text;
+SAFDisconnectError[27] = L_SAFError27_Text;
+SAFDisconnectError[28] = L_SAFError28_Text;
+SAFDisconnectError[29] = L_SAFError29_Text;
+SAFDisconnectError[30] = L_SAFError30_Text;
+SAFDisconnectError[31] = L_SAFError31_Text;
+SAFDisconnectError[32] = L_SAFError32_Text;
+SAFDisconnectError[33] = L_SAFError33_Text;
+SAFDisconnectError[34] = L_SAFError34_Text;
+SAFDisconnectError[35] = L_SAFError35_Text;
+SAFDisconnectError[36] = L_SAFError36_Text;
+SAFDisconnectError[37] = L_SAFError37_Text;
+SAFDisconnectError[38] = L_SAFError38_Text;
+SAFDisconnectError[39] = L_SAFError39_Text;
+SAFDisconnectError[40] = L_SAFError40_Text;
+SAFDisconnectError[41] = L_SAFError41_Text;
+SAFDisconnectError[42] = L_SAFError42_Text;
+SAFDisconnectError[43] = L_SAFError43_Text;
+SAFDisconnectError[44] = L_SAFError44_Text;
+SAFDisconnectError[45] = L_SAFError45_Text;
+SAFDisconnectError[47] = L_SAFError47_Text;
+SAFDisconnectError[48] = L_SAFError48_Text;
+SAFDisconnectError[50] = L_SAFError50_Text;
+SAFDisconnectError[51] = L_SAFError51_Text;
+SAFDisconnectError[52] = L_SAFError52_Text;
+SAFDisconnectError[53] = L_SAFError53_Text;
+var g_iTimerID = -1;
+var idCtx = parent.idCtx;
+var oSAFClassFactory = parent.oSAFClassFactory;
+var g_oSAFRemoteAssistanceHelper = parent.g_oSAFRemoteAssistanceHelper;
+var g_bProgessBar = false;
+var g_oSession = null;
+var g_bTransitioned = false;
+var g_bReverseConnectReady = false;
+function DoLoad()
+{
+if(null==parent.idFrameSet1)
+{
+idBody.style.visibility = "hidden";
+alert( L_ERRACCESSDENIED_Text );
+return;
+}
+}
+function DoUnLoad()
+{
+;
+try
+{
+;
+parent.RCDisconnect();
+;
+try
+{
+if (g_oSession)
+{
+;
+g_oSession.Notify(0x9);
+;
+g_oSession = null;
+}
+}
+catch(e)
+{
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function InitializeRAClient()
+{
+if(null==parent.idFrameSet1)
+{
+return;
+}
+try
+{
+;
+;
+var szRetVal = null;
+var bRetVal = true;
+;
+idRemoteControlObject.style.width = "1px";
+idRemoteControlObject.style.height = "1px";
+g_oSAFRemoteAssistanceHelper.m_oSAFClassFactory = oSAFClassFactory;
+szRetVal = parent.ParseURL();
+if( null == szRetVal )
+{
+oSAFClassFactory.Close();
+return;
+}
+if ( true == g_oSAFRemoteAssistanceHelper.m_bIsIM )
+{
+;
+parent.idFrameSet3.rows="0%,0%,*";
+;
+Helper_InitIMScreen2();
+;
+return;
+}
+if( true == g_oSAFRemoteAssistanceHelper.m_bListen )
+{
+;
+parent.idFrameSet3.rows="0%,0%,*";
+idLayer2.className="PositionA zindex2 DisplayNone";
+idLayer1.style.visibility = "visible";
+idLayer1.className="styLayer1 Display";
+}
+else
+{
+;
+;
+if (parent.LoadIncidentFromFile() == null)
+{
+oSAFClassFactory.Close();
+return;
+}
+if( (true == g_oSAFRemoteAssistanceHelper.m_bNoPrompt ) || ( true == g_oSAFRemoteAssistanceHelper.m_bURA ))
+{
+;
+g_oSAFRemoteAssistanceHelper.m_szRCTicket = g_oSAFRemoteAssistanceHelper.m_szRCTicketEncrypted;
+;
+parent.idFrameSet3.rows="0%,0%,*";
+bRetVal = Helper_InitScreen2();
+if( -1 == bRetVal)
+{
+oSAFClassFactory.Close();
+return false;
+}
+else if( false == bRetVal)
+{
+return true;
+}
+}
+else
+{
+idConnectionProgressLayer.className = "PositionA zindex2 DisplayNone";
+btnYES.disabled = true;
+var szTmp = g_oSAFRemoteAssistanceHelper.m_szUserName;
+if( szTmp.length < 20 )
+{
+window.S1TD1TR1EntryPoint.innerText = szTmp;
+}
+else
+{
+window.S1TD1TR1EntryPoint.innerText = szTmp.slice(0, 20) + "...";
+g_oSAFRemoteAssistanceHelper.m_szUserName = window.S1TD1TR1EntryPoint.innerText;
+}
+var szAskMsg = null;
+if( false == g_oSAFRemoteAssistanceHelper.m_bExpired )
+{
+window.idInviteExpires.innerText = g_oSAFRemoteAssistanceHelper.m_szExpiryTime;
+}
+else
+{
+window.S0TD1TR2EntryPoint.innerHTML="&nbsp;&nbsp;"+"Expired"+"&nbsp;"
+window.idInviteExpires.innerHTML = g_oSAFRemoteAssistanceHelper.m_szExpiryTime;
+szAskMsg = L_EXPIRYMESSAGE_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_EXPIRYMESSAGE1_Text + g_oSAFRemoteAssistanceHelper.m_szUserName;
+}
+if( null != szAskMsg )
+{
+window.idRow5.innerHTML = szAskMsg + ".<BR><BR>" + L_DOYOUCONNECT1_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_DOYOUCONNECT2_Text + "<P>";
+}
+else
+{
+window.idRow5.innerHTML = L_DOYOUCONNECT1_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_DOYOUCONNECT2_Text+"<P>";
+}
+if(true == g_oSAFRemoteAssistanceHelper.m_oCurrentIncident.RCTicketEncrypted)
+{
+var oRow=EntryPoint.insertRow(3);
+oRow.name="TR3EntryPoint";
+oRow.id="TR3EntryPoint";
+oRow.insertCell(0);
+oRow.cells(0).name="TD0TR3EntryPoint";
+oRow.cells(0).id="TD0TR3EntryPoint";
+oRow.cells(0).className="sys-table-cell-bgcolor3 width3";
+oRow.cells(0).innerHTML="<Div align='right' class='sys-font-body sys-color-body MaxLayout' id='idRow41' name='idRow41'><BR id='idBr'>" + L_PASSWORD_Text + "&nbsp;&nbsp;</Div>";
+oRow.insertCell(1);
+oRow.cells(1).name="TD1TR3EntryPoint";
+oRow.cells(1).id="TD1TR3EntryPoint";
+oRow.cells(1).className="sys-inlineform-bgcolor1 Maxwidth";
+oRow.cells(1).innerHTML="<table id='T0TD1TR3EntryPoint' name='T0TD1TR3EntryPoint' border='0' cellspacing='6px' cellpadding='0px' class='MaxLayout'><tr id='idtr1'><td id='idtr1td1'><input type='password' id='idPasswordBox' name='idPasswordBox' class='MaxWidth' onkeypress='Helper_PasswordSet();' onkeyup='OnPassWrdKeyUp();' tabindex=1></td></tr><tr id='idtr2'><td id='idtr2td1'><span id='idRow4' name='idRow4' class='sys-font-body sys-color-body'>"+ L_CONTACT_Text + "<span id='idSender1' name='idSender1'>&nbsp;</span>.</span></td></tr></table>";
+window.idSender1.innerText=window.S1TD1TR1EntryPoint.innerText;
+idPasswordBox.disabled = false;
+if( false == g_oSAFRemoteAssistanceHelper.m_bExpired )
+{
+;
+idCtx.setWindowDimensions(idCtx.x,idCtx.y,425,280);
+}
+else
+{
+;
+idCtx.setWindowDimensions(idCtx.x,idCtx.y,425,320);
+}
+window.setTimeout('idPasswordBox.focus()',500);
+}
+else
+{
+if( true == g_oSAFRemoteAssistanceHelper.m_bExpired )
+{
+idCtx.setWindowDimensions(100,100,425,270);
+}
+btnYES.disabled = false;
+btnYES.focus();
+g_oSAFRemoteAssistanceHelper.m_szRCTicket = g_oSAFRemoteAssistanceHelper.m_szRCTicketEncrypted;
+}
+}
+}
+parent.idFrameSet3.rows="0%,0%,*";
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+return;
+}
+var g_iLoopCnt = 0;
+function InitRemoteConnection()
+{
+;
+if(null != idRemoteDesktopClientHost)
+{
+if( null == g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient )
+{
+try
+{
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient = idRemoteDesktopClientHost.GetRemoteDesktopClient();
+}
+catch(error)
+{
+parent.FatalError( L_ERRGETRDC_Text, error );
+return false;
+}
+try
+{
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.OnConnected = function()
+{ Helper_ConnectedHandler(); }
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.OnDisconnected = function(reason)
+{ Helper_DisconnectedHandler(reason); }
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.OnConnectRemoteDesktopComplete = function(status)
+{ Helper_RemoteDesktopCompleteHandler(status); }
+;
+try
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.OnBeginConnect = function()
+{ ; Helper_EnableChatAndTools(); }
+}
+catch(error)
+{
+if ( -2146827850 != error.number )
+{
+parent.FatalError( L_ERRBINDINGEVTS_Text, error);
+return false;
+}
+}
+;
+idRemoteControlObject.style.visibility = "hidden";
+}
+catch(error)
+{
+parent.FatalError( L_ERRBINDINGEVTS_Text, error);
+return false;
+}
+}
+}
+else
+{
+parent.FatalError( L_ERRRDSCLIENTHOST_Text );
+return false;
+}
+;
+return true;
+}
+function Helper_ConnectedHandler()
+{
+;
+try
+{
+if (g_oSAFRemoteAssistanceHelper.m_bIsIM)
+{
+g_oSAFRemoteAssistanceHelper.m_IMListening = false;
+}
+try
+{
+if (g_oSession)
+{
+g_oSession.Notify(0x1);
+g_oSession = null;
+}
+}
+catch(e)
+{
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+return;
+}
+try
+{
+parent.SoundBeep();
+parent.g_oSAFRemoteAssistanceHelper.m_szHelpeeIP = g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectedServer;
+g_oSAFRemoteAssistanceHelper.m_bConnected = true;
+Helper_InitChatAndTools();
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+return;
+}
+function SetChatFocus()
+{
+try
+{
+parent.frames.idFrameChat.idchatText.focus();
+}
+catch(error)
+{
+}
+}
+function Helper_InitChatAndTools()
+{
+;
+try
+{
+;
+parent.frames.idFrameChat.Helper_InitializeRAChatClient();
+parent.frames.idFrameChat.idchatText.readOnly = false;
+parent.frames.idFrameChat.idchatText.disabled = false;
+parent.frames.idFrameChat.btnSendChat.disabled = false;
+;
+parent.frames.idFrameStatus.Helper_InitializeStatus();
+;
+parent.frames.idFrameTools.Helper_InitializeTools();
+parent.frames.idFrameTools.idTB.SetState( "btnTakeControl", true );
+parent.frames.idFrameTools.idTB.SetState( "btnSendFile_1", true );
+parent.frames.idFrameTools.idTB.SetState( "btnOptions", true );
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function Helper_EnableChatAndTools()
+{
+;
+var L_PRECONNECTSTATUS0_Text = "<strong>Status:&nbsp;</strong> ";
+var L_PRECONNECTSTATUS_Text = "Waiting for ";
+var L_PRECONNECTSTATUS1_Text = " to accept your offer of Remote Assistance...";
+var L_PRECONNECTSTATUSNEW_Text="Waiting for an answer...";
+try
+{
+idBody.scroll="no";
+idRemoteControlObject.style.width = "100%";
+idRemoteControlObject.style.height = "100%";
+parent.idFrameSet2.cols="235px,*";
+parent.idFrameSet1.rows="30px,3px,*";
+parent.idFrameSet3.rows="0%,33px,*";
+var szStatus= L_PRECONNECTSTATUS0_Text+L_PRECONNECTSTATUSNEW_Text;
+parent.frames.idFrameStatus.idStatus.innerHTML = "&nbsp;&nbsp;" + szStatus;
+parent.frames.idFrameTools.DisableToolbar();
+parent.frames.idFrameTools.idTB.SetState( "btnQuit_1", true );
+parent.frames.idFrameTools.idTB.SetState( "btnHelp", true );
+parent.frames.idFrameChat.idchatText.readOnly = true;
+parent.frames.idFrameChat.idchatText.disabled = true;
+parent.frames.idFrameChat.btnSendChat.disabled = true;
+parent.frames.idFrameChat.idIncomingChatText.disabled = false;
+szStatus = "----------\n\n" + L_PRECONNECTSTATUSNEW_Text + "\n\n----------\n\n";
+parent.frames.idFrameChat.Helper_UpdateChatHistory( szStatus );
+g_bTransitioned = true;
+if( true == g_oSAFRemoteAssistanceHelper.m_bNoChat )
+{
+;
+parent.frames.idFrameStatus.Helper_HideChat();
+}
+idConnectionProgressLayer.className = "PositionA zindex2 DisplayNone";
+idRemoteControlObject.style.visibility = "visible";
+g_oSAFRemoteAssistanceHelper.m_idCtx.maximized = true;
+;
+parent.g_oSAFRemoteAssistanceHelper.m_oFso = new ActiveXObject("Scripting.FileSystemObject");
+;
+parent.g_oSAFRemoteAssistanceHelper.m_oRCFileDlg = new ActiveXObject("SAFRCFileDlg.FileSave");
+;
+ToggleSmartScaling();
+if( false == g_oSAFRemoteAssistanceHelper.m_bNoChat )
+{
+;
+parent.frames.idFrameChat.SetFocus();
+}
+;
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text , error);
+}
+;
+return;
+}
+function ToggleSmartScaling()
+{
+;
+try
+{
+;
+var obj = new ActiveXObject( "SAFRCFileDlg.RASetting" );
+;
+g_oSAFRemoteAssistanceHelper.m_bEnableSmartScaling = obj.GetProfileString("Scaling");
+if(true == g_oSAFRemoteAssistanceHelper.m_bEnableSmartScaling)
+{
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.EnableSmartSizing = true;
+parent.frames.idFrameStatus.Helper_UpdateMode( true );
+}
+else
+{
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.EnableSmartSizing = false;
+parent.frames.idFrameStatus.Helper_UpdateMode( false );
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function DisplayConnectionDisconnectMessage( reason )
+{
+;
+try
+{
+var szErrMsg = null;
+;
+switch( reason ) {
+case 4:
+case 37:
+szErrMsg = SAFDisconnectError[ reason ];
+break;
+case 24:
+szErrMsg = SAFDisconnectError[ reason ] + g_oSAFRemoteAssistanceHelper.m_szUserName;
+break;
+case 41:
+szErrMsg = SAFDisconnectError[ reason ] + g_oSAFRemoteAssistanceHelper.m_szUserName + L_SAFError41b_Text;
+break;
+default:
+szErrMsg = SAFDisconnectError[ reason ];
+break;
+}
+if( true == g_bTransitioned )
+{
+parent.frames.idFrameStatus.Helper_UpdateStatus( parent.L_DISCONNECTED_Text );
+parent.frames.idFrameChat.Helper_UpdateChatHistory( szErrMsg );
+parent.DisplayMessage( szErrMsg );
+}
+else
+{
+I0TD0TR0t0idEnunciator.src = "../../Common/icon_warning_32x.gif";
+S0TD2TR0t0idEnunciator.innerText = szErrMsg;
+idCancel.value = "OK";
+idBody.focus();
+idCancel.focus();
+}
+;
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+}
+function ShutdownUI( reason )
+{
+;
+try
+{
+parent.SoundBeep();
+g_oSAFRemoteAssistanceHelper.m_bConnected = false;
+parent.frames.idFrameChat.idBody.onmouseover = "function{ }";
+parent.frames.idFrameChat.idchatText.readOnly = true;
+parent.frames.idFrameChat.idchatText.disabled = true;
+parent.frames.idFrameChat.btnSendChat.disabled = true;
+parent.frames.idFrameChat.idIncomingChatText.disabled = false;
+parent.frames.idFrameScreen.idBody.disabled = true;
+parent.frames.idFrameTools.DisableToolbar();
+parent.frames.idFrameStatus.Helper_UpdateStatus( parent.L_DISCONNECTED_Text );
+parent.frames.idFrameStatus.idBody.disabled = true;
+parent.CloseOpenSubWin();
+}
+catch(error)
+{
+}
+;
+}
+function Helper_DisconnectedHandler(reason)
+{
+;
+try
+{
+;
+if (parent.g_bVoipConnected == true)
+{
+if( null != g_oSAFRemoteAssistanceHelper.m_oSAFIntercomClient )
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFIntercomClient.Disconnect();
+}
+}
+switch ( reason ) {
+case 0:
+case 3:
+case 5:
+if( 0 <= g_iTimerID )
+{
+clearTimeout( g_iTimerID );
+g_iTimerID = -1;
+}
+if( g_oSAFRemoteAssistanceHelper.m_bConnected == false )
+{
+DisplayConnectionDisconnectMessage( reason );
+}
+else
+{
+ShutdownUI( reason );
+if( 5 == reason )
+{
+parent.UserDisconnect();
+}
+}
+break;
+default:
+if( g_oSAFRemoteAssistanceHelper.m_bConnected == false )
+{
+if( 0 <= g_iTimerID )
+{
+clearTimeout( g_iTimerID );
+g_iTimerID = -1;
+}
+DisplayConnectionDisconnectMessage( reason );
+;
+;
+}
+else
+{
+ShutdownUI( reason );
+}
+break;
+}
+parent.frames.idFrameScreen.g_oSAFRemoteAssistanceHelper.m_bConnected = false;
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+return;
+}
+function Helper_RemoteDesktopCompleteHandler(status)
+{
+;
+var bDisconnect = false;
+var L_ERRSHADOW1_Text = "Your connection to the ";
+var L_ERRSHADOW2_Text = " has closed. This might be because ";
+var L_ERRSHADOW3_Text = "'s screen resolution changed. To reconnect, reopen the invitation.";
+var L_ERRTAKECONTROL1_Text = "The screen resolution has been changed, which caused you to lose keyboard and mouse control of ";
+var L_ERRTAKECONTROL2_Text = "'s computer. To request control again, click \"Take Control\".";
+try
+{
+;
+switch ( status ) {
+case 300:
+;
+break;
+case 301:
+;
+try
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectRemoteDesktop();
+if( true == parent.idFrameTools.g_oSAFRemoteAssistanceHelper.m_bRCEnabled )
+{
+parent.idFrameTools.Helper_TakeControl();
+var szMsg = L_ERRTAKECONTROL1_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_ERRTAKECONTROL2_Text;
+parent.DisplayMessage( szMsg );
+parent.Helper_SendControlCommand( "ABORTRC" );
+}
+}
+catch(error)
+{
+bDisconnect = true;
+}
+break;
+case 302:
+;
+bDisconnect = true;
+break;
+}
+if( true == bDisconnect )
+{
+if( 301 == status )
+{
+var szMsg = L_ERRSHADOW1_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_ERRSHADOW2_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_ERRSHADOW3_Text;
+parent.DisplayMessage( szMsg );
+}
+parent.UserDisconnect();
+parent.frames.idFrameTools.Helper_QuitMethod();
+;
+return;
+}
+}
+catch(error)
+{
+}
+;
+return;
+}
+function Helper_PasswordSet()
+{
+;
+try
+{
+if( true == btnYES.disabled)
+{
+btnYES.disabled = false;
+}
+if (window.event.keyCode == 13)
+{
+var bRetVal = true;
+bRetVal = Helper_InitScreen2();
+if( -1 == bRetVal )
+{
+oSAFClassFactory.Close();
+return false;
+}
+else if( false == bRetVal )
+{
+return true;
+}
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+return false;
+}
+;
+return;
+}
+function onYes()
+{
+try
+{
+var bRetVal = Helper_InitScreen2();
+if( -1 == bRetVal )
+{
+oSAFClassFactory.Close();
+return false;
+}
+else if ( false == bRetVal )
+{
+return true;
+}
+}
+catch(error)
+{
+oSAFClassFactory.Close();
+return;
+}
+}
+function OnPassWrdKeyUp()
+{
+if((idPasswordBox.value=="")&&(btnYES.disabled==false))
+btnYES.disabled = true;
+}
+function GetPassStub()
+{
+;
+try
+{
+if (false == g_oSAFRemoteAssistanceHelper.m_bPasswordSet)
+{
+g_oSAFRemoteAssistanceHelper.m_szPassword = idPasswordBox.value;
+;
+g_oSAFRemoteAssistanceHelper.m_szPassStub = g_oSAFRemoteAssistanceHelper.m_oEncryption.EncryptString(idPasswordBox.value, g_oSAFRemoteAssistanceHelper.m_oDict.Item("PassStub"));
+g_oSAFRemoteAssistanceHelper.m_szRCTicket = g_oSAFRemoteAssistanceHelper.m_oCurrentIncident.RCTicket;
+g_oSAFRemoteAssistanceHelper.m_bPasswordSet = true;
+}
+}
+catch (error)
+{
+idPasswordBox.value = "";
+btnYES.disabled = true;
+alert( L_ERRPWD_Text );
+idPasswordBox.focus();
+}
+;
+return g_oSAFRemoteAssistanceHelper.m_bPasswordSet;
+}
+function DoReverseConnect(bHasBeenCalled)
+{
+;
+if (g_bReverseConnectReady)
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.AcceptListenConnection(
+g_oSAFRemoteAssistanceHelper.m_szExpertBlob);
+}
+else if (bHasBeenCalled != 1)
+{
+setTimeout("DoReverseConnect(1)", 5000);
+}
+else
+{
+DoConnectToServer();
+}
+;
+}
+function DoConnectToServer()
+{
+;
+if (g_oSAFRemoteAssistanceHelper.m_IMListening)
+{
+g_oSAFRemoteAssistanceHelper.m_IMListening = false;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectToServer(g_oSAFRemoteAssistanceHelper.m_szExpertBlob);
+}
+;
+}
+function OnIMConnectTimeout()
+{
+try
+{
+;
+if (g_oSession != null)
+{
+g_oSession = null;
+Helper_DisconnectedHandler(8);
+}
+;
+}
+catch (error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+;
+}
+}
+function OnSessionStatus(Status)
+{
+;
+try
+{
+switch (Status)
+{
+case 0x3:
+var s = g_oSession.ReceivedUserTicket;
+if (g_oSession.ContextDataProperty("L") == 1 ||
+oSAFClassFactory.Connectivity.IsAModem)
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ColorDepth = 8;
+}
+else
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ColorDepth = 16;
+}
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectParms = s;
+DoReverseConnect();
+break;
+case 0x10:
+g_oSAFRemoteAssistanceHelper.m_IMListening = true;
+;
+StartListening( 120 );
+break;
+case 0x11:
+g_oSession = null;
+Helper_DisconnectedHandler(1);
+break;
+default:
+break;
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function OnListenConnect_IM(ErrorCode)
+{
+;
+try
+{
+if( false == g_oSAFRemoteAssistanceHelper.m_bListen )
+{
+if (ErrorCode == 51)
+{
+return;
+}
+g_bReverseConnectReady = true;
+}
+else
+{
+TR2T0idLayer1.style.visibility = "visible";
+}
+}
+catch( error )
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+return;
+}
+function OnListenConnect(ErrorCode)
+{
+;
+try
+{
+if( false == g_oSAFRemoteAssistanceHelper.m_bListen )
+{
+if (g_oSAFRemoteAssistanceHelper.m_IMListening == false)
+return;
+g_oSAFRemoteAssistanceHelper.m_IMListening = false;
+if (ErrorCode == 51)
+{
+return;
+}
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.AcceptListenConnection(
+g_oSAFRemoteAssistanceHelper.m_szExpertBlob);
+}
+else
+{
+TR2T0idLayer1.style.visibility = "visible";
+}
+}
+catch( error )
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+return;
+}
+function InitListenMode()
+{
+;
+var sExpertTicket = null;
+try
+{
+InitRemoteConnection();
+;
+g_oSAFRemoteAssistanceHelper.m_szExpertTicket = g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.CreateListenEndpoint(0);
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+return g_oSAFRemoteAssistanceHelper.m_szExpertTicket;
+}
+function StartListening( iTimeout )
+{
+;
+try
+{
+;
+if (g_oSAFRemoteAssistanceHelper.m_bIsIM)
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.OnListenConnect = OnListenConnect_IM;
+else
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.OnListenConnect = OnListenConnect;
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.StartListen(iTimeout);
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function Helper_InitIMScreen2()
+{
+;
+var sExpertTicket = null;
+try
+{
+idConnectionProgressLayer.className = "PositionA zindex2 Display";
+idLayer2.className="PositionA zindex2 DisplayNone";
+ConnectStarted=0;
+;
+g_oSession = new ActiveXObject("rcbdyctl.IMSession");
+;
+g_oSession.OnSessionStatus = OnSessionStatus;
+;
+g_oSession.GetLaunchingSession( g_oSAFRemoteAssistanceHelper.m_SessionID );
+;
+sExpertTicket = InitListenMode();
+g_oSAFRemoteAssistanceHelper.m_szUserName = g_oSession.User.FriendlyName;
+Helper_UpdateConnectionStatus();
+;
+var oMsgr = new ActiveXObject("Messenger.UIAutomation");
+g_oSAFRemoteAssistanceHelper.m_szLocalUser = parent.EscapedName(oMsgr.MyFriendlyName);
+g_oSAFRemoteAssistanceHelper.m_szExpertBlob = ( 5 + g_oSAFRemoteAssistanceHelper.m_szLocalUser.length) +
+";NAME=" + g_oSAFRemoteAssistanceHelper.m_szLocalUser +
+((g_oSAFRemoteAssistanceHelper.m_bPerfOptimize)?"1":"0");
+;
+setTimeout("OnIMConnectTimeout()", 900000);
+g_oSession.SendOutExpertTicket(sExpertTicket);
+} catch (error)
+{
+g_oSession = null;
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+return;
+}
+function Helper_InitScreen2()
+{
+;
+try
+{
+if ( false == InitRemoteConnection())
+{
+return -1;
+}
+if(true == g_oSAFRemoteAssistanceHelper.m_oCurrentIncident.RCTicketEncrypted)
+{
+if (idPasswordBox.value=="")
+{
+parent.DisplayMessage(L_ERRPWD_Text);
+idPasswordBox.focus();
+return true;
+}
+else
+{
+if(false == GetPassStub())
+{
+return true;
+}
+}
+}
+idConnectionProgressLayer.className = "PositionA zindex2 Display";
+idLayer2.className="positionA zindex2 DisplayNone";
+ConnectStarted=0;
+if( false == RAEstablishConnection())
+{
+DisplayConnectionDisconnectMessage( 28 );
+return false;
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+return -1;
+}
+;
+return true;
+}
+function CreateExpertBlob()
+{
+;
+var sTemp = null;
+try
+{
+g_oSAFRemoteAssistanceHelper.m_szLocalUser = parent.GetLocalUser();
+sTemp = ( 5 + g_oSAFRemoteAssistanceHelper.m_szLocalUser.length) + ";NAME=" + g_oSAFRemoteAssistanceHelper.m_szLocalUser;
+if ( g_oSAFRemoteAssistanceHelper.m_szPassStub != "" )
+{
+sTemp += (5 + g_oSAFRemoteAssistanceHelper.m_szPassStub.length) + ";PASS=" + g_oSAFRemoteAssistanceHelper.m_szPassStub;
+}
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+return;
+}
+g_oSAFRemoteAssistanceHelper.m_szExpertBlob = sTemp;
+;
+return sTemp;
+}
+function RAEstablishConnection()
+{
+;
+var sTemp = ""
+g_iTimerID = -1;
+if(null != idRemoteDesktopClientHost )
+{
+if(null != g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient)
+{
+try
+{
+if( false == Helper_UpdateConnectionStatus())
+{
+return false;
+}
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectParms = g_oSAFRemoteAssistanceHelper.m_szRCTicket;
+g_oSAFRemoteAssistanceHelper.m_szCurrentIP = g_oSAFRemoteAssistanceHelper.m_szHelpeeIP;
+sTemp = CreateExpertBlob();
+;
+if( true == g_oSAFRemoteAssistanceHelper.m_bPerfOptimize )
+{
+try
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ColorDepth = 8;
+}
+catch(error)
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ColorDepth = 16;
+}
+}
+else
+{
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ColorDepth = 16;
+}
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectToServer( sTemp );
+}
+catch(error)
+{
+parent.FatalError( L_ERRCONNECTION_Text, error);
+return;
+}
+}
+else
+{
+parent.FatalError( L_ERRRDSCLIENT_Text );
+return;
+}
+}
+else
+{
+parent.FatalError( L_ERRRDSCLIENTHOST_Text );
+}
+;
+return;
+}
+function Helper_UpdateConnectionStatus()
+{
+;
+try
+{
+if( false == g_oSAFRemoteAssistanceHelper.m_bURA )
+{
+I0TD0TR0t0idEnunciator.src = "animation.gif";
+S0TD2TR0t0idEnunciator.innerText = L_ConnectTo_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + "...";
+}
+else
+{
+I0TD0TR0t0idEnunciator.src = "animation.gif";
+S0TD2TR0t0idEnunciator.innerText = L_ConnectToURA_Text + "...";
+}
+idCtx.setWindowDimensions(idCtx.x,idCtx.y,425,145);
+}
+catch(error)
+{
+parent.FatalError( parent.L_ERRFATAL_Text, error );
+return false;
+}
+;
+return true;
+}
+function Helper_CompleteConnectionStatus()
+{
+;
+try
+{
+I0TD0TR0t0idEnunciator.src = "connected.gif";
+S0TD2TR0t0idEnunciator.innerText = L_ConnectionSuccess_Text + g_oSAFRemoteAssistanceHelper.m_szUserName + L_NOVICESCOMPUTER_Text;
+}
+catch(error)
+{
+parent.FatalError( parent.L_ERRFATAL_Text, error );
+}
+;
+return;
+}
+function document.onkeydown()
+{
+try
+{
+switch( window.event.keyCode ) {
+case 0x8:
+if ( window.event.srcElement.id != "idPasswordBox")
+{
+window.event.returnValue=false;
+}
+break;
+case 0x9:
+if( window.event.srcElement.id == "btnNO" )
+{
+if ( (btnYES.disabled == false ) && ( idPasswordBox.disabled == true ))
+{
+btnYES.focus();
+window.event.returnValue = false;
+}
+else
+{
+idPasswordBox.focus();
+window.event.returnValue = false;
+}
+}
+if (g_oSAFRemoteAssistanceHelper.m_bConnected == false)
+{
+if( (window.event.srcElement.id != "idPasswordBox" ) && (window.event.srcElement.id != "btnYES" ))
+{
+window.event.returnValue = false;
+}
+}
+break;
+}
+}
+catch(error)
+{
+btnYES.focus();
+window.event.returnValue = false;
+}
+}
+function PSSStartListen()
+{
+;
+try
+{
+InitListenMode();
+TR1T0idLayer1.style.visibility = "visible";
+B0idLayer1.disabled = true;
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function SaveExpertTicket()
+{
+;
+try
+{
+;
+var oFS = new ActiveXObject("Scripting.FileSystemObject");
+;
+var oFile = oFS.OpenTextFile( InputSaveExpertTix.value, 2, true );
+;
+oFile.Write( g_oSAFRemoteAssistanceHelper.m_szExpertTicket );
+;
+oFile.Close();
+;
+StartListening( 3600 );
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function OpenNoviceTicket()
+{
+;
+try
+{
+TR2T0idLayer1.style.visibility = "hidden";
+TR1T0idLayer1.style.visibility = "hidden";
+TR0T0idLayer1.style.visibility = "hidden";
+idLayer1.className="styLayer1 DisplayNone";
+idConnectionProgressLayer.className = "PositionA zindex2 Display";
+ConnectStarted=0;
+;
+idCtx.ChangeContext( "kioskmode", "");
+;
+g_oSAFRemoteAssistanceHelper.m_bLoadFromFile = true;
+g_oSAFRemoteAssistanceHelper.m_szIncidentFile = InputReadNoviceTix.value;
+parent.LoadIncidentFromFile();
+g_oSAFRemoteAssistanceHelper.m_szRCTicket = g_oSAFRemoteAssistanceHelper.m_szRCTicketEncrypted;
+;
+Helper_UpdateConnectionStatus();
+;
+CreateExpertBlob();
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.ConnectParms = parent.g_oSAFRemoteAssistanceHelper.m_szRCTicket;
+;
+g_oSAFRemoteAssistanceHelper.m_oSAFRemoteDesktopClient.AcceptListenConnection(
+g_oSAFRemoteAssistanceHelper.m_szExpertBlob);
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function OnClickSaveAs()
+{
+;
+try
+{
+;
+var obj = new ActiveXObject("SAFRCFileDlg.FileSave");
+var x;
+;
+x = obj.OpenFileSaveDlg();
+if (x)
+{
+InputSaveExpertTix.value = obj.FileName;
+}
+InputSaveExpertTix.focus();
+SaveButton.disabled = false;
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+function OnClickOpenAs()
+{
+;
+try
+{
+;
+var obj = new ActiveXObject("SAFRCFileDlg.FileOpen");
+var x;
+x=obj.OpenFileOpenDlg();
+if (x)
+{
+InputReadNoviceTix.value = obj.FileName;
+}
+InputReadNoviceTix.focus();
+}
+catch(error)
+{
+parent.FatalError( parent.L_RCCTL_Text, error);
+}
+;
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<STYLE id="LocalStyles" name="LocalStyles">
+.styLayer1
+{
+position: absolute;
+z-index: 2;
+visibility: hidden;
+}
+.height7
+{
+height:18px;
+}
+.width3
+{
+width:72px;
+}
+.zindex1
+{
+z-index:1;
+}
+.zindex2
+{
+z-index:2;
+}
+.PositionA
+{
+position:absolute;
+}
+.padding9
+{
+padding-bottom:6px;
+}
+.rdchostcontainerbackground
+{
+border: 2px solid #CBD7F1;
+}
+</STYLE>
+<body id="idBody" name="idBody" class="sys-inlineform-bgcolor1" tabindex=-1 onunload="DoUnLoad();"
+onload="DoLoad();InitializeRAClient()">
+<div id="idLayer1" name="idLayer1" class="styLayer1 DisplayNone" >
+<table id="T0idLayer1" name="T0idLayer1">
+<TR id="TR0T0idLayer1" name="TR0T0idLayer1">
+<TD id="TD0T0idLayer1" name="TD0T0idLayer1" colspan=2>
+1. To initiate listen mode, click on the "Listen button" &nbsp;&nbsp;&nbsp;&nbsp;
+<BUTTON id="B0idLayer1" name="B0idLayer1" class="styButton Border" onclick="PSSStartListen()" tabindex=1 accesskey="L">
+<u>L</u>isten
+</BUTTON>
+</TD>
+</TR>
+<TR id="TR1T0idLayer1" name="TR1T0idLayer1" style="visibility:hidden">
+<TD id="TD0TR1T0idLayer1" name="TD0TR1T0idLayer1">
+2. Enter Filename to save the Expert side ticket:
+<input tabindex=2 id="InputSaveExpertTix" name="InputSaveExpertTix" type="Text" class="Border" style="width:295px;" onkeypress=SaveExpertTicket()>
+</input>
+</TD>
+<TD id="TD1TR1T0idLayer1" name="TD1TR1T0idLayer1">
+<span id="S0TD1TR1T0idLayer1" name="S0TD1TR1T0idLayer1" class="valignbottom">
+<button tabindex=3 class="styButton Border" id="BrowseButton" name="BrowseButton" onclick="OnClickSaveAs()" accesskey="B">
+<u>B</u>rowse...
+</button>
+<button tabindex=4 class="styButton Border" id="SaveButton" name="SaveButton" onclick="SaveExpertTicket()" accesskey="S" disabled>
+&nbsp;<u>S</u>ave
+</button>
+</span>
+</TD>
+</TR>
+<TR id="TR2T0idLayer1" name="TR2T0idLayer1" style="visibility:hidden">
+<TD id="TD0TR2T0idLayer1" name="TD0TR2T0idLayer1">
+3. Enter Filename containing the ticket from novice:
+<input tabindex=5 id="InputReadNoviceTix" name="InputReadNoviceTix" type="Text" class="Border" style="width:295px;" onkeypress="OpenNoviceTicket()"></input>
+</TD>
+<TD id="TD1TR2T0idLayer1" name="TD1TR2T0idLayer1">
+<span id="S0TD1TR2T0idLayer1" name="S0TD1TR2T0idLayer1" class="valignbottom">
+<button tabindex=6 class="styButton Border" id="BrowseButton2" name="BrowseButton2" onclick="OnClickOpenAs()" accesskey="B">
+<u>B</u>rowse...
+</button>
+<button tabindex=7 class="styButton Border" id="ConnectButton" name="ConnectButton" onclick="OpenNoviceTicket()" accesskey="C">
+&nbsp;<u>C</u>onnect
+</button>
+</span>
+</TD>
+</TR>
+</Table>
+</div>
+<div id="idLayer2" name="idLayer2" class="PositionA zindex2 sys-inlineform-bgcolor1">
+<table id="idMainTable" name="idMainTable" cellspacing="0px" cellpadding="0px" class="MaxLayout">
+<TR>
+<TD class="padding6 padding4 padding3">
+<Table id="T0" name="T0" cellpadding="0px" cellspacing="0px" border=0 class="Maxlayout">
+<TR id="TR0T0" name="TR0T0">
+<TD id="TD0TR0T0" name="TD0TR0T0" class="padding5 padding8 padding9">
+<table name="EntryPoint" id="EntryPoint" cellspacing="1px" class="MaxLayout sys-table-header-bgcolor2">
+<tr name="TR0EntryPoint" id="TR0EntryPoint"> <!-- start of row 1 -->
+<td name="TD0TR0EntryPoint" id="TD0TR0EntryPoint" colspan="2" class="sys-table-cell-bgcolor1 height7" >
+<span name="S0TD0TR0EntryPoint" id="S0TD0TR0EntryPoint" align="left" class="sys-font-body sys-color-body" id="idTitle">
+&nbsp;&nbsp;Remote Assistance Invitation
+</span>
+</td>
+</tr> <!-- End of row 1 -->
+<tr name="TR1EntryPoint" id="TR1EntryPoint"> <!-- Start of row 2 -->
+<td name="TD0TR1EntryPoint" id="TD0TR1EntryPoint" class="sys-table-cell-bgcolor3 height7 width3">
+<div name="D0TD0TR1EntryPoint" id="D0TD0TR1EntryPoint" align="right" class="sys-font-body sys-color-body">
+From:&nbsp;&nbsp;
+</div>
+</td>
+<td name="TD1TR1EntryPoint" id="TD1TR1EntryPoint" class="sys-inlineform-bgcolor1 height7 MaxWidth">
+<span name="S0TD1TR1EntryPoint" id="S0TD1TR1EntryPoint">
+&nbsp;
+</span>
+<span id="S1TD1TR1EntryPoint" name="S1TD1TR1EntryPoint" class="sys-font-body sys-color-body">
+&nbsp;
+</span>
+</td>
+</tr> <!-- End of row 2 -->
+<tr name="TR2EntryPoint" id="TR2EntryPoint"> <!-- start of row 3 -->
+<td name="TD0TR2EntryPoint" id="TD0TR2EntryPoint" class="sys-table-cell-bgcolor3 height7 width3" nowrap>
+<div name="D0TD0TR2EntryPoint" id="D0TD0TR2EntryPoint" class="sys-font-body sys-color-body" align="right">
+Expires on:&nbsp;&nbsp;
+</div>
+</td>
+<td name="TD1TR2EntryPoint" id="TD1TR2EntryPoint" class="sys-inlineform-bgcolor1 height7 MaxWidth">
+<Span name="S0TD1TR2EntryPoint" id="S0TD1TR2EntryPoint" class="sys-font-body-bold sys-color-body">
+&nbsp;
+</span>
+<span id="idInviteExpires" name="idInviteExpires" class="sys-font-body sys-color-body">
+&nbsp;
+</span>
+</td>
+</tr> <!-- end of row 3 -->
+<!-- <tr name="TR3EntryPoint" id="TR3EntryPoint">--> <!-- start of row 4 -->
+<!--<td name="TD0TR3EntryPoint" id="TD0TR3EntryPoint" class="sys-table-cell-bgcolor3 width3">
+<Div align="right" class="sys-font-body sys-color-body MaxLayout" id="idRow41" name="idRow41">
+<BR id="idBr2" name="idBr2">
+Password:&nbsp;&nbsp;
+</Div>
+</td>
+<td name="TD1TR3EntryPoint" id="TD1TR3EntryPoint" class="sys-inlineform-bgcolor1">
+<table id="T0TD1TR3EntryPoint" name="T0TD1TR3EntryPoint" border=0 cellspacing="6px" cellpadding="0px" class="MaxLayout">
+<tr>
+<td>
+<input type="password" id="idPasswordBox" name="idPasswordBox" class="MaxWidth" onkeypress=Helper_PasswordSet() onkeyup=OnPassWrdKeyUp() tabindex=1>
+</td>
+</tr>
+<tr>
+<td id="idtdText" name="idtdText">
+<span id="idRow4" name="idRow4" class="sys-font-body sys-color-body">
+If you do not know the password, contact <span id="idSender1" name="idSender1">&nbsp;</span>.
+</span>
+</td>
+</tr>
+</table>
+</td>
+</tr>--> <!-- End of row 4 -->
+</table>
+</TD>
+</TR>
+<TR name="TR0btnRow" id="TR0btnRow"> <!-- start of row 5 -->
+<TD name="TD1TR0btnRow" id="TD1TR0btnRow" class="padding5 padding8">
+<span class="sys-font-body sys-color-body" id="idRow5" name="idRow5">
+&nbsp;
+</span>
+</td>
+</tr> <!-- end of row 5 -->
+<tr>
+<td class="Height8">
+</td>
+</Tr>
+<tr name="TR1btnRow" id="TR1btnRow"> <!-- start of row 6 -->
+<td name="TD0TR1btnRow" id="TD0TR1btnRow" colspan=2 align="right" class="valignbottom padding5">
+<BUTTON align=center class="styBtnWidth sys-font-body sys-color-body" id="btnYES" name="btnYES" onclick="onYes()" tabindex=2 accesskey="Y"> <u>Y</u>es </BUTTON>
+<Span id="idblankSpace" name="idblankSpace" class="width8"></Span>
+<BUTTON align=center class="styBtnWidth sys-font-body sys-color-body" id="btnNO" onClick="oSAFClassFactory.Close()" tabindex=3 accesskey="N"><u>N</u>o</BUTTON>
+</td>
+</tr> <!-- end of row 6 -->
+</table>
+</TD>
+</TR>
+</Table>
+</div> <!-- end of layer 2 -->
+<div id="idConnectionProgressLayer" name="idConnectionProgressLayer" class="DisplayNone PositionA zindex2 sys-inlineform-bgcolor1">
+<Table id="T0idConnectionProgressLayer" name="T0idConnectionProgressLayer" class="MaxLayout" cellspacing="0px" cellpadding="0px" border=0>
+<TR>
+<TD class="padding6 padding4 padding3">
+<Table class="MaxLayout" cellspacing="0px" cellpadding="0px" border=0>
+<TR>
+<TD id="TD0TR0t0idEnunciator" name="TD0TR0t0idEnunciator" class="width8 height8 padding1">
+<img id="I0TD0TR0t0idEnunciator" name="I0TD0TR0t0idEnunciator" src="connected.gif" ALT="Connecting to remote computer image">
+</TD>
+<TD><Span id="idblankSpace" name="idblankSpace" class="width8"></Span></TD>
+<TD id="TD2TR0t0idEnunciator" name="TD2TR0t0idEnunciator" class="height8 padding1">
+<span class="sys-font-body sys-color-body" align="left" id="S0TD2TR0t0idEnunciator" name="S0TD2TR0t0idEnunciator">
+&nbsp;
+</span>
+</TD>
+</TR>
+<TR>
+<TD class="height5" colspan="3">
+</TD>
+</TR>
+<TR>
+<TD id="idbtnContainer" name="idbtnContainer" align="center" colspan="3" class="valignbottom">
+<BUTTON class="styBtnWidth sys-font-body sys-color-body" id="idCancel" name="idCancel" onClick="oSAFClassFactory.Close()" onkeypress="oSAFClassFactory.Close()" tabindex=0 accesskey="C"> <u>C</u>ancel </button>
+</TD>
+</TR>
+</Table>
+</TD>
+</TR>
+</Table>
+</div>
+<div id="idRemoteControlObject" name="idRemoteControlObject" class="PositionA zindex1 MaxLayout padding3 padding7 sys-homepage-bgcolor">
+<OBJECT classid=clsid:299BE050-E83E-4DB7-A7DA-D86FDEBFE6D0
+data=data:application/x-oleobject;base64,UOCbKT7ot02n2thv3r/m0AADAAAlQgAAnDEAAA==
+id="idRemoteDesktopClientHost" name="idRemoteDesktopClientHost"
+class="MaxLayout rdchostcontainerbackground"
+VIEWASTEXT>
+</OBJECT>
+</div>
+</body>
+</html>
